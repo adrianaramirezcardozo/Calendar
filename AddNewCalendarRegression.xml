@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="iOS Add new calendar regression tests">
+    <test verbose="2" name="iOS regression">
+        <classes>
+            <class name="tests.AddNewCalendarTest"/>
+        </classes>
+    </test>
+</suite>
