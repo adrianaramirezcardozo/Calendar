@@ -40,14 +40,20 @@ public class CalendarsPage extends Helpers {
     }
     @Step("Clicking Add new calendar")
     public void addNewCalendar() {
+        WebDriverWait wait = new WebDriverWait(driver, GlobalVariables.longTimeout);
+        wait.until(ExpectedConditions.elementToBeClickable(addCalendarButton));
         addCalendarButton.click();
     }
     @Step("Opening Add Calendar Menu")
     public void openAddCalendarMenu() {
+        WebDriverWait wait = new WebDriverWait(driver, GlobalVariables.longTimeout);
+        wait.until(ExpectedConditions.elementToBeClickable(addCalendarMenuButton));
         addCalendarMenuButton.click();
     }
 
     public void openNewCalendarsCreated() {
+        WebDriverWait wait = new WebDriverWait(driver, GlobalVariables.longTimeout);
+        wait.until(ExpectedConditions.elementToBeClickable(openCalendarsCreatedButton));
         openCalendarsCreatedButton.click();
     }
     @Step("Title is Displayed")
@@ -65,6 +71,8 @@ public class CalendarsPage extends Helpers {
     }
     @Step("Clicking Done button")
     public void clickDoneButton() {
+        WebDriverWait wait = new WebDriverWait(driver, GlobalVariables.longTimeout);
+        wait.until(ExpectedConditions.elementToBeClickable(doneButton));
         doneButton.click();
     }
 }

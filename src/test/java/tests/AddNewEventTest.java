@@ -29,7 +29,7 @@ public class AddNewEventTest extends DriverSetup {
         newEventPage.chooseStartHour("20", "05");
 
         //For Ends select a date and time which is + 1 day from what you have chose in Starts.
-        newEventPage.chooseFinishDay();
+        //newEventPage.chooseFinishDay();
 
         //Add travel time of 30 minutes.
         newEventPage.chooseTravelTime("30 minutes");
