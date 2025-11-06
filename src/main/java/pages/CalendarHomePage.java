@@ -33,6 +33,9 @@ public class CalendarHomePage extends Helpers {
     @iOSXCUITFindBy(accessibility = "calendars-button")
     private RemoteWebElement calendarsButton;
 
+    @iOSXCUITFindBy(accessibility = "2025")
+    private RemoteWebElement backButton;
+
     public CalendarHomePage(IOSDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -64,6 +67,10 @@ public class CalendarHomePage extends Helpers {
         RemoteWebElement dayButton = (RemoteWebElement) driver.findElement(By.xpath(xpath));
         String value = dayButton.getAttribute("value");
         return value != null && !value.equals("0");
+    }
+
+    public void switchToMonthView() {
+        backButton.click();
     }
 
     public void openCalendarsPage() {

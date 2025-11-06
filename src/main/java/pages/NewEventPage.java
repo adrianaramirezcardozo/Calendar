@@ -59,7 +59,6 @@ public class NewEventPage {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-
     @Step("New event page is loaded")
     public boolean newEventPageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.shortTimeout).until(ExpectedConditions.visibilityOf(titleTextField)).isDisplayed();
@@ -75,13 +74,11 @@ public class NewEventPage {
         titleTextField.clear();
         titleTextField.sendKeys(title);
     }
-
     @Step("Title entered")
     public void enterRandomTitle(String text) {
         titleTextField.clear();
         titleTextField.sendKeys(text);
     }
-
     public String getCommentText() {
         return titleTextField.getText();
     }
@@ -135,12 +132,4 @@ public class NewEventPage {
     public void addNewEventCreated() {
         addButton.click();
     }
-
-    public void switchToMonthView(String monthName) {
-        String xpath = "//XCUIElementTypeButton[@name='" + monthName + "']";
-        new WebDriverWait(driver, GlobalVariables.shortTimeout)
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)))
-                .click();
-    }
-
 }
