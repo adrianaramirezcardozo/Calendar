@@ -1,0 +1,36 @@
+name: Mobile Test Automation - Calendar App
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_suite:
+        description: 'Choose the test suite to run'
+        required: true
+        default: 'AddNewCalendarRegression'
+        type: choice
+        options:
+          - AddNewCalendarRegression
+          - AddNewEventRegression
+
+jobs:
+  run-tests:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run tests
+        run: mvn test -Dtest.suite=${{ inputs.test_suite }}.xml
+
+      - name: Upload allure reports as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: Upload screenshots as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenshots
